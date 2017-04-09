@@ -1,0 +1,650 @@
+<html>
+
+<head>
+	<title>
+		Flat Map
+	</title>
+</head>
+
+<!--Initialising css folders-->
+<link rel="stylesheet" href="css/materialize.min.css">
+<link rel="stylesheet" href="css/map.css">
+<!--Initialising javascript folders-->
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.min.js"></script>
+<script src="js/extra.js"></script>
+
+<!--Initialising icon font-->
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+<!--Styling header tags-->
+<style>
+
+</style>
+<!--Initialisations end-->
+
+<body>
+    
+	
+   <div id="sidebar">
+    
+	<h3 class="text-flow" style="color:white;text-align:center">Map Styles</h3><br>
+	<!-- Dropdown Trigger -->
+	<h5 style="color:white;margin-left:5%" >Water</h5>
+	<a class='dropdown-button btn' id="btn" href='#' data-activates='dropdown1' value="" style="margin-left:5%;width:50%">Pick a Color</a>
+
+	<!-- Dropdown Structure -->
+	<ul id='dropdown1' class='dropdown-content' style="margin-left:5%">
+		<li><a href="#!" onclick="setColorYellowW()" style="background-color:#f1c40f;color:white;text-align:center">Yellow</a></li>
+		<li><a href="#!" onclick="setColorGreenW()" style="background-color:#2ecc71;color:white;text-align:center">Green</a></li>
+		<li><a href="#!" onclick="setColorBlueW()" style="background-color:#3498db;color:white;text-align:center">Blue</a></li>
+		<li><a href="#!" onclick="setColorPurpleW()" style="background-color:#9b59b6;color:white;text-align:center">Purple</a></li>
+		<li><a href="#!" onclick="setColorOrangeW()" style="background-color:#e67e22;color:white;text-align:center">Orange</a></li>
+		<li><a href="#!" onclick="setColorRedW()" style="background-color:#e74c3c;color:white;text-align:center">Red</a></li>
+		<li><a href="#!" onclick="setColorGreyW()" style="background-color:#95a5a6;color:white;text-align:center">Grey</a></li>
+		<li><a href="#!" onclick="setColorBlackW()" style="background-color:#000000;color:white;text-align:center">Black</a></li>
+		<li><a href="#!" onclick="setColorWhiteW()" style="background-color:#ffffff;color:black;text-align:center">White</a></li>
+	</ul>
+	
+	<br><h5 style="color:white;margin-left:5%" >Roads</h5>
+	<a class='dropdown-button btn' id="btn2" href='#' data-activates='dropdown2'style="margin-left:5%;width:50%">Pick a Color</a>
+
+	<!-- Dropdown Structure -->
+	<ul id='dropdown2' class='dropdown-content' style="margin-left:5%">
+		<li><a href="#!" onclick="setColorYellowR()" style="background-color:#f1c40f;color:white;text-align:center">Yellow</a></li>
+		<li><a href="#!" onclick="setColorGreenR()" style="background-color:#2ecc71;color:white;text-align:center">Green</a></li>
+		<li><a href="#!" onclick="setColorBlueR()" style="background-color:#3498db;color:white;text-align:center">Blue</a></li>
+		<li><a href="#!" onclick="setColorPurpleR()" style="background-color:#9b59b6;color:white;text-align:center">Purple</a></li>
+		<li><a href="#!" onclick="setColorOrangeR()" style="background-color:#e67e22;color:white;text-align:center">Orange</a></li>
+		<li><a href="#!" onclick="setColorRedR()" style="background-color:#e74c3c;color:white;text-align:center">Red</a></li>
+		<li><a href="#!" onclick="setColorGreyR()" style="background-color:#95a5a6;color:white;text-align:center">Grey</a></li>
+		<li><a href="#!" onclick="setColorBlackR()" style="background-color:#000000;color:white;text-align:center">Black</a></li>
+		<li><a href="#!" onclick="setColorWhiteR()" style="background-color:#ffffff;color:black;text-align:center">White</a></li>
+	</ul>
+	
+	
+	<br><h5 style="color:white;margin-left:5%" >Parks</h5>
+	<a class='dropdown-button btn' id="btn3" href='#' data-activates='dropdown3'  style="margin-left:5%;width:50%">Pick a Color</a>
+
+	<!-- Dropdown Structure -->
+	<ul id='dropdown3' class='dropdown-content' style="margin-left:5%">
+		<li><a href="#!" onclick="setColorYellowP()" style="background-color:#f1c40f;color:white;text-align:center">Yellow</a></li>
+		<li><a href="#!" onclick="setColorGreenP()" style="background-color:#2ecc71;color:white;text-align:center">Green</a></li>
+		<li><a href="#!" onclick="setColorBlueP()" style="background-color:#3498db;color:white;text-align:center">Blue</a></li>
+		<li><a href="#!" onclick="setColorPurpleP()" style="background-color:#9b59b6;color:white;text-align:center">Purple</a></li>
+		<li><a href="#!" onclick="setColorOrangeP()" style="background-color:#e67e22;color:white;text-align:center">Orange</a></li>
+		<li><a href="#!" onclick="setColorRedP()" style="background-color:#e74c3c;color:white;text-align:center">Red</a></li>
+		<li><a href="#!" onclick="setColorGreyP()" style="background-color:#95a5a6;color:white;text-align:center">Grey</a></li>
+		<li><a href="#!" onclick="setColorBlackP()" style="background-color:#000000;color:white;text-align:center">Black</a></li>
+		<li><a href="#!" onclick="setColorWhiteP()" style="background-color:#ffffff;color:black;text-align:center">White</a></li>
+	</ul>
+	
+	<br><h5 style="color:white;margin-left:5%" >Landscape</h5>
+	<a class='dropdown-button btn' id="btn4" href='#' data-activates='dropdown4'  style="margin-left:5%;width:50%">Pick a Color</a>
+
+	<!-- Dropdown Structure -->
+		<ul id='dropdown4' class='dropdown-content' style="margin-left:5%">
+		<li><a href="#!" onclick="setColorYellowL()" style="background-color:#f1c40f;color:white;text-align:center">Yellow</a></li>
+		<li><a href="#!" onclick="setColorGreenL()" style="background-color:#2ecc71;color:white;text-align:center">Green</a></li>
+		<li><a href="#!" onclick="setColorBlueL()" style="background-color:#3498db;color:white;text-align:center">Blue</a></li>
+		<li><a href="#!" onclick="setColorPurpleL()" style="background-color:#9b59b6;color:white;text-align:center">Purple</a></li>
+		<li><a href="#!" onclick="setColorOrangeL()" style="background-color:#e67e22;color:white;text-align:center">Orange</a></li>
+		<li><a href="#!" onclick="setColorRedL()" style="background-color:#e74c3c;color:white;text-align:center">Red</a></li>
+		<li><a href="#!" onclick="setColorGreyL()" style="background-color:#95a5a6;color:white;text-align:center">Grey</a></li>
+		<li><a href="#!" onclick="setColorBlackL()" style="background-color:#000000;color:white;text-align:center">Black</a></li>
+		<li><a href="#!" onclick="setColorWhiteL()" style="background-color:#ffffff;color:black;text-align:center">White</a></li>
+	</ul>
+	
+	<br><h5 style="color:white;margin-left:5%" >Lables Visibility</h5>
+	<a class='dropdown-button btn' id="btn5" href='#' data-activates='dropdown5'  style="margin-left:5%;width:50%">Pick a Color</a>
+
+	<!-- Dropdown Structure -->
+		<ul id='dropdown5' class='dropdown-content' style="margin-left:5%">
+		<li><a href="#!" onclick="setVisibilityOn()" style="text-align:center">On</a></li>
+		<li><a href="#!" onclick="setVisibilityOff()" style="text-align:center">Off</a></li>
+	</ul>
+	
+	
+        
+	
+   </div>
+   <div id="map">
+   
+   </div>
+	 
+	
+    
+
+<!--Initialising scrollfire-->
+<script>
+var visib ="on";
+var water = "#bfd7ff";
+var land = "#c1b58b";
+var road = "#fdfcf8";
+var park = "#a5b076";
+function setVisibilityOn()
+{
+var property = document.getElementById("btn5");
+property.innerHTML = "ON";
+visib = "on";
+initMap();
+}
+function setVisibilityOff()
+{
+var property = document.getElementById("btn5");
+property.innerHTML = "OFF";
+visib = "off";
+initMap();
+}
+function setColorYellowW()
+{
+var property = document.getElementById("btn");
+property.style.backgroundColor = "#f1c40f";
+water = "#f1c40f";
+property.innerHTML = "Yellow";
+initMap();
+}
+function setColorGreenW()
+{
+var property = document.getElementById("btn");
+property.style.backgroundColor = "#1abc9c";
+water = "#1abc9c";
+property.innerHTML = "Green";
+initMap();
+}
+function setColorBlueW()
+{
+var property = document.getElementById("btn");
+property.style.backgroundColor = "#3498db";
+water = "#3498db";
+property.innerHTML = "Blue";
+initMap();
+}
+function setColorPurpleW()
+{
+var property = document.getElementById("btn");
+property.style.backgroundColor = "#9b59b6";
+water = "#9b59b6";
+property.innerHTML = "Purple";
+initMap();
+}
+function setColorOrangeW()
+{
+var property = document.getElementById("btn");
+property.style.backgroundColor = "#e67e22";
+water = "#e67e22";
+property.innerHTML = "Orange";
+initMap();
+}
+function setColorRedW()
+{
+var property = document.getElementById("btn");
+property.style.backgroundColor = "#e74c3c";
+water = "#e74c3c";
+property.innerHTML = "Red";
+initMap();
+}
+function setColorGreyW()
+{
+var property = document.getElementById("btn");
+property.style.backgroundColor = "#95a5a6";
+water = "#95a5a6";
+property.innerHTML = "Grey";
+initMap();
+}
+function setColorBlackW()
+{
+var property = document.getElementById("btn");
+property.style.backgroundColor = "#000000";
+water = "#000000";property.innerHTML = "Black";
+initMap();
+}
+function setColorWhiteW()
+{
+var property = document.getElementById("btn");
+property.style.backgroundColor = "#ffffff";
+water = "#ffffff";
+property.innerHTML = "<span style='color:black'>White</span>";
+initMap();
+}
+
+
+
+function setColorYellowL()
+{
+var property = document.getElementById("btn4");
+property.style.backgroundColor = "#f1c40f";
+land = "#f1c40f";
+property.innerHTML = "Yellow";
+initMap();
+}
+function setColorGreenL()
+{
+var property = document.getElementById("btn4");
+property.style.backgroundColor = "#1abc9c";
+land = "#1abc9c";
+property.innerHTML = "Green";
+initMap();
+}
+function setColorBlueL()
+{
+var property = document.getElementById("btn4");
+property.style.backgroundColor = "#3498db";
+land = "#3498db";
+property.innerHTML = "Blue";
+initMap();
+}
+function setColorPurpleL()
+{
+var property = document.getElementById("btn4");
+property.style.backgroundColor = "#9b59b6";
+land = "#9b59b6";
+property.innerHTML = "Purple";
+initMap();
+}
+function setColorOrangeL()
+{
+var property = document.getElementById("btn4");
+property.style.backgroundColor = "#e67e22";
+land = "#e67e22";
+property.innerHTML = "Orange";
+initMap();
+}
+function setColorRedL()
+{
+var property = document.getElementById("btn4");
+property.style.backgroundColor = "#e74c3c";
+land = "#e74c3c";
+property.innerHTML = "Red";
+initMap();
+}
+function setColorGreyL()
+{
+var property = document.getElementById("btn4");
+property.style.backgroundColor = "#95a5a6";
+land = "#95a5a6";
+property.innerHTML = "Grey";
+initMap();
+}
+function setColorBlackL()
+{
+var property = document.getElementById("btn4");
+property.style.backgroundColor = "#000000";
+land = "#000000";
+property.innerHTML = "Black";
+initMap();
+}
+function setColorWhiteL()
+{
+var property = document.getElementById("btn4");
+property.style.backgroundColor = "#ffffff";
+land = "#ffffff";
+property.innerHTML = "<span style='color:black'>White</span>";
+initMap();
+}
+
+
+
+function setColorYellowR()
+{
+var property = document.getElementById("btn2");
+property.style.backgroundColor = "#f1c40f";
+road = "#f1c40f";
+property.innerHTML = "Yellow";
+initMap();
+}
+function setColorGreenR()
+{
+var property = document.getElementById("btn2");
+property.style.backgroundColor = "#1abc9c";
+road = "#1abc9c";
+property.innerHTML = "Green";
+initMap();
+}
+function setColorBlueR()
+{
+var property = document.getElementById("btn2");
+property.style.backgroundColor = "#3498db";
+road = "#3498db";
+property.innerHTML = "Blue";
+initMap();
+}
+function setColorPurpleR()
+{
+var property = document.getElementById("btn2");
+property.style.backgroundColor = "#9b59b6";
+road = "#9b59b6";
+property.innerHTML = "Purple";
+initMap();
+}
+function setColorOrangeR()
+{
+var property = document.getElementById("btn2");
+property.style.backgroundColor = "#e67e22";
+road = "#e67e22";
+property.innerHTML = "Orange";
+initMap();
+}
+function setColorRedR()
+{
+var property = document.getElementById("btn2");
+property.style.backgroundColor = "#e74c3c";
+road = "#e74c3c";
+property.innerHTML = "Red";
+initMap();
+}
+function setColorGreyR()
+{
+var property = document.getElementById("btn2");
+property.style.backgroundColor = "#95a5a6";
+road = "#95a5a6";
+property.innerHTML = "Grey";
+initMap();
+}
+function setColorBlackR()
+{
+var property = document.getElementById("btn2");
+property.style.backgroundColor = "#000000";
+road = "#000000";
+property.innerHTML = "Black";
+initMap();
+}
+function setColorWhiteR()
+{
+var property = document.getElementById("btn2");
+property.style.backgroundColor = "#ffffff";
+road = "#ffffff";
+property.innerHTML = "<span style='color:black'>White</span>";
+initMap();
+}
+
+
+function setColorYellowP()
+{
+var property = document.getElementById("btn3");
+property.style.backgroundColor = "#f1c40f";
+park = "#f1c40f";
+property.innerHTML = "Yellow";
+initMap();
+}
+function setColorGreenP()
+{
+var property = document.getElementById("btn3");
+property.style.backgroundColor = "#1abc9c";
+park = "#1abc9c";
+property.innerHTML = "Green";
+initMap();
+}
+function setColorBlueP()
+{
+var property = document.getElementById("btn3");
+property.style.backgroundColor = "#3498db";
+park = "#3498db";
+property.innerHTML = "Blue";
+initMap();
+}
+function setColorPurpleR()
+{
+var property = document.getElementById("btn3");
+property.style.backgroundColor = "#9b59b6";
+park = "#9b59b6";
+property.innerHTML = "Purple";
+initMap();
+}
+function setColorOrangeP()
+{
+var property = document.getElementById("btn3");
+property.style.backgroundColor = "#e67e22";
+park = "#e67e22";
+property.innerHTML = "Orange";
+initMap();
+}
+function setColorRedP()
+{
+var property = document.getElementById("btn3");
+property.style.backgroundColor = "#e74c3c";
+park = "#e74c3c";
+property.innerHTML = "Red";
+initMap();
+}
+function setColorGreyP()
+{
+var property = document.getElementById("btn3");
+property.style.backgroundColor = "#95a5a6";
+park = "#95a5a6";
+property.innerHTML = "Grey";
+initMap();
+}
+function setColorBlackP()
+{
+var property = document.getElementById("btn3");
+property.style.backgroundColor = "#000000";
+park = "#000000";property.innerHTML = "Black";
+initMap();
+}
+function setColorWhiteP()
+{
+var property = document.getElementById("btn3");
+property.style.backgroundColor = "#ffffff";
+park = "#ffffff";
+property.innerHTML = "<span style='color:black'>White</span>";
+initMap();
+}
+</script>
+
+<script>
+  var options = [
+    {selector: '#scroll', offset: 100, callback: 'Materialize.showStaggeredList("#scroll")' },
+	{selector: '#scroll1', offset: 100, callback: 'Materialize.showStaggeredList("#scroll1")' }
+  ];
+  Materialize.scrollFire(options);
+</script>
+<!-- Initialising Dropdown -->
+<script>
+
+  $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrainWidth: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+      stopPropagation: false // Stops event propagation
+    }
+  );
+  
+ </script> 
+<!--Initialising modal-->
+	<script>
+	$(document).ready(function(){
+		$('.modal').modal();
+	  });
+	  
+	  $(document).ready(function() {
+    $('select').material_select();
+  });
+  
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+	</script>
+
+<!--Initialising modal-->
+	<script>
+	 
+	</script>
+
+<!--Initialising parallax-->
+	<script>
+	$(document).ready(function(){
+		  $('.parallax').parallax();
+		});
+		
+		
+		  $(document).ready(function(){
+    $('ul.tabs').tabs();
+  });
+  
+  $(document).ready(function(){
+      $('.carousel').carousel();
+    });
+	
+	  $(document).ready(function(){
+      $('.slider').slider();
+	  $('.slider').slider('pause');
+    });
+	
+	 $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+	</script>
+	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwRgB9asub3ly84FzJxRKxwWTvPuL5-iw&callback=initMap" async defer></script>
+	<script>
+	
+	
+     var map;
+     function initMap() {
+		 $('#map').height($(window).height());
+		
+
+		 var styledMapType = new google.maps.StyledMapType(
+            [
+              {elementType: 'geometry', stylers: [{color: '#ebe3cd'}]},
+              {elementType: 'labels.text.fill', stylers: [{color: '#523735'},{visibility:visib}]},
+              {elementType: 'labels.text.stroke', stylers: [{color: '#f5f1e6'},{visibility:visib}]},
+              {
+                featureType: 'administrative',
+                elementType: 'geometry.stroke',
+                stylers: [{color: '#c9b2a6'}]
+              },
+              {
+                featureType: 'administrative.land_parcel',
+                elementType: 'geometry.stroke',
+                stylers: [{color: land}]
+              },
+              {
+                featureType: 'administrative.land_parcel',
+                elementType: 'labels.text.fill',
+                stylers: [{color: land}]
+              },
+              {
+                featureType: 'landscape.natural',
+                elementType: 'geometry',
+                stylers: [{color: land}]
+              },
+              {
+                featureType: 'poi',
+                elementType: 'geometry',
+                stylers: [{color: park}]
+              },
+              {
+                featureType: 'poi',
+                elementType: 'labels.text.fill',
+                stylers: [{color: park}]
+              },
+              {
+                featureType: 'poi.park',
+                elementType: 'geometry.fill',
+                stylers: [{color: park}]
+              },
+              {
+                featureType: 'poi.park',
+                elementType: 'labels.text.fill',
+                stylers: [{color: park}]
+              },
+              {
+                featureType: 'road',
+                elementType: 'geometry',
+                stylers: [{color: road}]
+              },
+              {
+                featureType: 'road.arterial',
+                elementType: 'geometry',
+                stylers: [{color: road}]
+              },
+              {
+                featureType: 'road.highway',
+                elementType: 'geometry',
+                stylers: [{color: road}]
+              },
+              {
+                featureType: 'road.highway',
+                elementType: 'geometry.stroke',
+                stylers: [{color: road}]
+              },
+              {
+                featureType: 'road.highway.controlled_access',
+                elementType: 'geometry',
+                stylers: [{color: road}]
+              },
+              {
+                featureType: 'road.highway.controlled_access',
+                elementType: 'geometry.stroke',
+                stylers: [{color:road}]
+              },
+              {
+                featureType: 'road.local',
+                elementType: 'labels.text.fill',
+                stylers: [{color:road}]
+              },
+              {
+                featureType: 'transit.line',
+                elementType: 'geometry',
+                stylers: [{color: road}]
+              },
+              {
+                featureType: 'transit.line',
+                elementType: 'labels.text.fill',
+                stylers: [{color: road}]
+              },
+              {
+                featureType: 'transit.line',
+                elementType: 'labels.text.stroke',
+                stylers: [{color: road}]
+              },
+              {
+                featureType: 'transit.station',
+                elementType: 'geometry',
+                stylers: [{color: road}]
+              },
+              {
+                featureType: 'water',
+                elementType: 'geometry.fill',
+                stylers: [{color: water}]
+              },
+              {
+                featureType: 'water',
+                elementType: 'labels.text.fill',
+                stylers: [{color: water}]
+              }
+            ],
+            {name: 'Styled Map'});
+	
+        map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 8,
+		mapTypeControlOptions: {
+            mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+                    'styled_map']
+          }
+		
+       });
+	   
+	   	map.mapTypes.set('styled_map', styledMapType);
+        map.setMapTypeId('styled_map');
+      }
+	
+			
+     
+   
+
+	</script>
+<!--Initialisations end-->
+
+</body>
+
+</html>
